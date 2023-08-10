@@ -1,0 +1,20 @@
+function readTextFile(file, callback){
+    var rawFile=new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET",file, true);
+    rawFile.onreadystatechange=function(){
+        if(rawFile.readyState===4 && rawFile.status=="200"){
+            callback(rawFile.responseText);
+        }
+        else{
+            callback('',rawFile.status);
+        }
+    }
+    rawFile.send(null);
+}
+
+readTextFile("C:\Users\manis\OneDrive\Desktop\tv_show.json", function(text){
+    var data = JSON.stringify(text);
+    // var data = JSON.parse(text);
+    console.log(data);
+})
