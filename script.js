@@ -1,4 +1,4 @@
-function readTextFile(file)
+function readTextFile(file, textListner)
 {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -9,8 +9,7 @@ function readTextFile(file)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                // 
-                console.log(allText);
+                textListner(allText);
             }
         }
     }
@@ -20,9 +19,11 @@ function readTextFile(file)
 readTextFile("/OTT_Task/tv_show.json", function(text){
     var data = JSON.parse(text);
     console.log(data)
-    data.forEach(element => {
-        return element;
-    }).map((element)=>{
+
+    // crete array
+    var tv_show_list = [];
+
+    data.slice(0, 10).forEach(element => {
         console.log(element.id);
         var name = element.name;
         var airDate = element.airdate;
@@ -34,6 +35,14 @@ readTextFile("/OTT_Task/tv_show.json", function(text){
         var type = element.type;
         var url = element.url;
         var id = element.id;
+
+        var tv_show = {
+            "name" : name
+        }; 
+
+
+        tv_show_list.push(tv_show);
     });
+
     
 })
