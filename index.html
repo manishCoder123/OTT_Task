@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Netflix</title>
+    <link rel="icon" href="img/headerImg/netflix.svg">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
- 
-    
-    <script src="script.js"></script>
+    <header>
+        <div class="parent">
+            <div class="netflixLogo">
+                <img src="img/headerImg/netflixLogo.svg" alt="">
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">TV Shows</a></li>
+                    <li><a href="">Movies</a></li>
+                    <li><a href="">New & Popular</a></li>
+                    <li><a href="">My List</a></li>
+                    <li><a href="">Browse by Languages</a></li>
+                </ul>
+            </div>
+            <div class="search-box">
+                <input type="text" class="input" placeholder="Titles, people, genres">
+                <a href="#" class="searchBtn">
+                    <img src="img/headerImg/search-interface-symbol.svg" alt="" class="img">
+                </a>
+            </div>
+            <div class="notification-bell">
+                <img src="img/headerImg/bell.svg" alt="">
+            </div>
+            <div class="profilediv">
+                <img src="img/headerImg/Money-Heist-TV-Series-PNG-File.png" alt="">
+            </div>
+            <div class="down-arrow">
+                <img src="img/headerImg/down-filled-triangular-arrow_1.svg" alt="" class="a">
+            </div>
+        </div>
+        <!-- parent --> 
+    </header>
+    <div class="card-box">
+        <a href="#animals" class="item"><img src="#" alt="Animals"></a>
+        <a href="#architecture" class="item"><img src="#" alt="Architecture"></a>
+        <a href="#nature" class="item"><img src="#" alt="Nature"></a>
+        <a href="#people" class="item"><img src="#" alt="People"></a>
+        <a href="#tech" class="item"><img src="#" alt="Tech"></a>
+    </div>
+
+
+
+    <script src="/OTT_Task/script.js"></script>
 </body>
+
 </html>
