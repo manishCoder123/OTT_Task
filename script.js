@@ -1,20 +1,20 @@
-function readTextFile(file, callback){
-    var rawFile=new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET",file, true);
-    rawFile.onreadystatechange=function(){
-        if(rawFile.readyState===4 && rawFile.status=="200"){
-            callback(rawFile.responseText);
-        }
-        else{
-            callback('',rawFile.status);
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                // 
+                console.log(allText);
+            }
         }
     }
     rawFile.send(null);
 }
 
-readTextFile("C:\Users\manis\OneDrive\Desktop\tv_show.json", function(text){
-    var data = JSON.stringify(text);
-    // var data = JSON.parse(text);
-    console.log(data);
-})
+readTextFile("file:///C:/Users/manis/OneDrive/Desktop/tv_show.json");
