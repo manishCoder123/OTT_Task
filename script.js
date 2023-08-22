@@ -18,62 +18,62 @@ readTextFile("/OTT_Task/tv_show.json", function (text) {
 
     // crete array
     var tv_show_list = [];
-    var flag = 0;
-    data.slice(0, 10).forEach(element => {
-
-        var name = element.name;
-        var airDate = element.airdate;
-        var airTime = element.airtime;
-        var runTime = element.runtime;
-        var season = element.season;
-        var type = element.type;
-        var url = element.url;
-        var id = element.id;
-        var img = element._embedded.show.image.medium;
-
-        var tv_show = {
-            "Name": name,
-            "Air_Date": airDate,
-            "Air_Time": airTime,
-            "Run_Time": runTime,
-            "Season": season,
-            "Type": type,
-            "URL": url,
-            "ID": id,
-            "Image": img
-        };
-        var node = document.getElementById("node");
-        const clone = node.cloneNode(true);
-        clone.setAttribute("id", "node-" + (flag + 1));
-        document.getElementById("card-div").appendChild(clone);
-        console.log("tv_show.Image-->" + (flag + 1), tv_show.Image)
-        if (tv_show.Image != null) {
-            document.querySelector("#img").src = tv_show.Image;
-
-        } else {
-            document.querySelector("#img").src = "https://nwamotherlode.com/wp-content/uploads/2011/06/movie-graphic-placeholder.jpg";
-        }
+    var flag = 1;
+    data.slice(1, 10).forEach(element => {
+        addCard(element, flag);
         flag++;
     });
+    
 });
 
 
 
+function addCard(element, flag) {
+    var name = element.name;
+    var airDate = element.airdate;
+    var airTime = element.airtime;
+    var runTime = element.runtime;
+    var season = element.season;
+    var type = element.type;
+    var url = element.url;
+    var id = element.id;
+    var img = element._embedded.show.image.medium;
 
+    var tv_show = {
+        "Name": name,
+        "Air_Date": airDate,
+        "Air_Time": airTime,
+        "Run_Time": runTime,
+        "Season": season,
+        "Type": type,
+        "URL": url,
+        "ID": id,
+        "Image": img
+    };
 
+    var node = document.getElementById("node");
+    
+    var clone = node.cloneNode(true);
+    clone.setAttribute("id",  getCurrentIndex(flag));
+    document.getElementById("card-div").appendChild(clone);
 
+    console.log("tv_show.Image-->" + getCurrentIndex(flag), tv_show.Image)
+    
+    if (tv_show.Image != null) {
+        document.querySelector(getCurrentIndex(flag) + " > #img").src = tv_show.Image;
 
+    } else {
+        document.querySelector(getCurrentIndex(flag) + " > #img").src = "https://nwamotherlode.com/wp-content/uploads/2011/06/movie-graphic-placeholder.jpg";
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+function getCurrentIndex(index) {
+    if (index == 0) {
+        return "#node";
+    } else {
+        return "#node_" + (index);
+    }
+}
 
 
 
