@@ -59,17 +59,14 @@ function addCard(element, flag) {
     if (tv_show.Image != null) {
         document.querySelector(getCurrentIndex(flag) + " > #img").src = tv_show.Image;
 
-    } else {
-        document.querySelector(getCurrentIndex(flag) + " > #img").src = "https://nwamotherlode.com/wp-content/uploads/2011/06/movie-graphic-placeholder.jpg";
-    }
+    } 
+    // else {
+    //     document.querySelector(getCurrentIndex(flag) + " > #img").src = "https://nwamotherlode.com/wp-content/uploads/2011/06/movie-graphic-placeholder.jpg";
+    // }
 }
 
 function getCurrentIndex(index) {
-    if (index == 0) {
-        return "#node";
-    } else {
-        return "#node_" + (index);
-    }
+    return index == 0 ? "#node" : ("#node-" + index);
 }
 
 
