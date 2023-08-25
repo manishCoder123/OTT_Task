@@ -19,14 +19,13 @@ readTextFile("/OTT_Task/tv_show.json", function (text) {
     // crete array
     var tv_show_list = [];
     var flag = 1;
-    data.slice(1, 10).forEach(element => {
+
+    data.slice(1, 18).forEach(element => {
         addCard(element, flag);
         flag++;
     });
     
 });
-
-
 
 function addCard(element, flag) {
     var name = element.name;
@@ -51,13 +50,11 @@ function addCard(element, flag) {
         "Image": img
     };
 
-    var node = document.getElementById("node");
-    
-    var clone = node.cloneNode(true);
-    clone.setAttribute("id",  getCurrentIndex(flag));
-    document.getElementById("card-div").appendChild(clone);
-
-    console.log("tv_show.Image-->" + getCurrentIndex(flag), tv_show.Image)
+    var node = document.getElementById("card-div");
+    node.insertAdjacentHTML("beforeend",
+                                `<div class="card item" id="node_`+flag+`">`+
+                                    `<img src="" alt="Animals" id="img">`+
+                                `</div>`);
     
     if (tv_show.Image != null) {
         document.querySelector(getCurrentIndex(flag) + " > #img").src = tv_show.Image;
