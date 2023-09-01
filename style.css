@@ -5,7 +5,7 @@ body {
     width: 100%;
     background-color: #1c1c1c;
     font-family: system-ui;
-    overflow: hidden;
+    overflow-x: scroll;
 }
 
 .parent {
@@ -123,10 +123,17 @@ ul {
     width: 10px;
 }
 
-
+.continueWatching-Div{
+    margin-top: 50px;
+}
 .card-box {
     display: flex;
-    margin-top: 50px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .card {
@@ -162,6 +169,105 @@ ul {
 
 .item img {
     display: block;
-    max-width: 100%;
+    width: 285px;
+    height: 145px;
 }
 
+.continueWatching-Div {
+    position: relative;
+}
+
+
+
+/* slide Images */
+.arrow {
+    position: absolute;
+    top: 125px;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    z-index: 1;
+}
+
+.arrow img {
+    width: 35px;
+    font-weight: 600;
+}
+
+#arrow-right, #tvarrow-right {
+    right: 80px;
+}
+.arrow:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+.heading h3{
+    color: #fff;
+}
+
+.hide-item{
+    cursor: pointer;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+.hide-item span{
+    font-size: .9vw;
+    color: #54b9c5;
+    font-weight: 700;
+    display: none;
+    
+}
+.hide-item img{
+    width: 12px;
+    margin-left: 4px;
+}
+.heading-div{
+    display: flex;
+    align-items: center;
+}
+
+.hide-item:hover span{
+    display: block;
+}
+.hide-item img{
+    display: none;
+}
+
+.heading-div:hover .hide-item img{
+    display: block;
+}
+
+
+.tvCard-box{
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.tvCard-box:focus-within .item,
+.tvCard-box:hover .item{
+    transform: translate(-25%);
+}
+
+.tvCard-box .item:focus,
+.tvCard-box .item:hover{
+    transform: scale(1.5);
+    z-index: 1;
+}
+
+.tvAction-div{
+    position: relative;
+    margin-top: 40px;
+}
+.tvarrow img{
+    width: 35px;
+}
+.tvarrow{
+    position: absolute;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    z-index: 1;
+    top: 115px;
+}
