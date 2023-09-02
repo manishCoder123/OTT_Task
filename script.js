@@ -23,7 +23,7 @@ readTextFile("/OTT_Task/tv_show.json", function (text) {
     data.slice(1, 18).forEach(element => {
         addCard(element, flag);
         tvAddCard(element, flag);
-        // trendAddCard(element, flag);
+        trendAddCard(element, flag);
         flag++;
     });
 
@@ -142,12 +142,12 @@ function trendAddCard(element, flag){
     `</div>`);
 
     if((tv_show.Image != null)){
-        document.querySelector(getTrendIndex(flag) + "> #trendingimg").src = tv_show.Image;
+        document.querySelector(getTrendIndex(flag) + "> #trendimg").src = tv_show.Image;
     }
 }
 
 
-function getTrendIndex(){
+function getTrendIndex(index){
     return index == 0 ? "#node2_" : ("#node2_" + index);
 }
 

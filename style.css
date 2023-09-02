@@ -239,7 +239,7 @@ ul {
 }
 
 
-.tvCard-box{
+.tvCard-box, .trendingCard-box{
     display: flex;
     overflow: auto;
     white-space: nowrap;
@@ -270,4 +270,10 @@ ul {
     height: 0;
     z-index: 1;
     top: 115px;
+}
+
+.trendingCard-box .item:focus,
+.trendingCard-box .item:hover{
+    transform: scale(1.5);
+    z-index: 1;
 }
